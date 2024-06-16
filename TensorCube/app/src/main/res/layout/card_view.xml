@@ -1,0 +1,95 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cardView"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="12dp"
+    app:cardCornerRadius="12dp"
+    android:layout_margin="16dp"
+    style="@style/RippleEffect">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <!-- Primera fila -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre:"
+                android:textSize="24dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold">
+            </TextView>
+
+            <TextView
+                android:id="@+id/textname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold">
+            </TextView>
+        </LinearLayout>
+
+        <!-- Segunda fila -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Modelo:"
+                android:textSize="24dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold">
+            </TextView>
+
+            <TextView
+                android:id="@+id/textmodelo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold">
+            </TextView>
+        </LinearLayout>
+
+        <!-- Tercera fila -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Etiqueta:"
+                android:textColor="@android:color/black"
+                android:textSize="24dp"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/textlabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold">
+            </TextView>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

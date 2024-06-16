@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error {{ status_code }}</title>
+</head>
+<body>
+        <h1>Error {{ status_code }}</h1>
+        <p>Ha ocurrido un error. Por favor, inténtalo de nuevo más tarde.</p>
+        <a href="{% url 'home' %}" class="btn btn-primary">Volver a Inicio</a>
+   
+</body>
+</html>

@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "95309594224",
+    "firebase_url": "https://tensorcube-ec4ef-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "tensorcube-ec4ef",
+    "storage_bucket": "tensorcube-ec4ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95309594224:android:7d0577f7f0a61b8a853eb5",
+        "android_client_info": {
+          "package_name": "com.app.tensorcube"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo8k58ws7oU3KQDrFdYOG5f1Eo24PJ9AM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95309594224:android:0cb8511b48583fa9853eb5",
+        "android_client_info": {
+          "package_name": "com.example.tensorcube"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo8k58ws7oU3KQDrFdYOG5f1Eo24PJ9AM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

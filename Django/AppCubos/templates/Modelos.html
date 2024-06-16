@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido</title>
+    <style>
+        body {
+            background-image: url(https://w.forfun.com/fetch/2d/2de60d6e873ab00c4f53e83eb4ccbfa4.jpeg);
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .logout-btn {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background-color: rgba(255, 39, 10, 0.753);
+            color: white;
+            padding: 10px 20px; /* Aumentado el padding */
+            font-size: 18px; /* Aumentado el tamaño de la fuente */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .title {
+            position: absolute;
+            top: 400px;
+            right: 340px;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 48px; /* Aumentado el tamaño de la fuente */
+            font-weight: bold;
+        }
+        .btn-group {
+            position: absolute;
+            top: 450px;
+            right: 400px;
+            color: rgb(121, 81, 187);
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn-group button {
+            background-color: rgb(141, 108, 199);
+            color: white;
+            width: 200px; /* Aumentado el ancho */
+            height: 80px; /* Aumentado el alto */
+            margin: 5px;
+            font-size: 20px; /* Aumentado el tamaño de la fuente */
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-group button:hover {
+            background-color: rgba(128, 0, 128, 0.753);
+        }
+
+        .model-cards {
+            position: absolute;
+            top: 20px;
+            right: 200px; /* Ajustado la distancia desde la derecha */
+        }
+
+        .model-card {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px; /* Aumentado el padding */
+            margin: 20px; /* Aumentado el margen */
+            width: 350px; /* Aumentado el ancho */
+            font-size: 18px; /* Aumentado el tamaño de la fuente */
+        }
+
+        .model-card h2 {
+            margin-top: 0;
+            font-size: 24px; /* Aumentado el tamaño de la fuente */
+        }
+
+        .model-card p {
+            margin: 10px 0; /* Aumentado el margen */
+        }
+
+        .model-card button {
+            font-size: 18px; /* Aumentado el tamaño de la fuente */
+            padding: 10px 20px; /* Aumentado el padding */
+        }
+    </style>
+</head>
+<body>
+    <div class="model-cards">
+        {% if modelos_usuario %}
+            {% for clave, modelo in modelos_usuario.items %}
+                <div class="model-card">
+                    <h2>{{ modelo.nombre }}</h2>
+                    <p>Modelo: {{ modelo.modelo }}</p>
+                    <p>Etiqueta: {{ modelo.label }}</p>
+                    <p>Descargar: <a href="{{ modelo.archivo }}">Enlace de descarga</a></p> 
+                    <form action="{% url 'borrar_modelo' clave=clave %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" onclick="return confirmarBorrado()">Borrar</button>
+                    </form>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No hay modelos disponibles para este usuario.</p>
+        {% endif %}
+    </div>
+
+    <script>
+        function confirmarBorrado() {
+            return confirm("¿Estás seguro de que quieres borrar este modelo?");
+        }
+    </script>
+</body>
+</html>

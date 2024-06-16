@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+    <!-- Importar fuentes de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <style>
+        /* CSS incrustado */
+        /* STYLES */
+
+        /* fonts */
+
+        body {
+            font-family: 'Lato', 'Arial', sans-serif;
+        }
+
+        h1 {
+            font-family: 'Montserrat', 'Arial', sans-serif;
+        }
+
+        /* colors */
+
+        :root {
+            --color-primary: rgb(141, 108, 199);
+            --color-primary-dark: #7d59a5;
+            --color-light-gray: #DAE2F1;
+            --color-success: #d4edda;
+            --color-success-text: #155724;
+            --color-error: #f8d7da;
+            --color-error-text: #721c24;
+        }
+
+        /* GLOBAL */
+
+        * {
+            margin: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background: linear-gradient(rgba(220, 234, 237, .7), rgba(220, 234, 237, .7)),
+                url(https://w.forfun.com/fetch/2d/2de60d6e873ab00c4f53e83eb4ccbfa4.jpeg) repeat;
+        }
+
+        .container {
+            height: 100%;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Alineación desde la parte superior */
+            padding-top: 50px; /* Espacio desde la parte superior */
+        }
+
+        .title {
+            color: var(--color-primary);
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 32px;
+        }
+
+        h1 {
+            color: var(--color-primary);
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 32px;
+        }
+
+        /* FORM */
+
+        .form-background {
+            background: #fff;
+            width: 420px;
+            border-radius: 10px;
+            padding: 32px;
+            -webkit-box-shadow: 0px 15px 88px -37px rgba(0, 0, 0, 0.17);
+            -moz-box-shadow: 0px 15px 88px -37px rgba(0, 0, 0, 0.17);
+            box-shadow: 0px 15px 88px -37px rgba(0, 0, 0, 0.17);
+        }
+
+        form {
+            text-transform: capitalize;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            margin-bottom: 15px;
+            border-radius: 30px;
+            border: 1px solid var(--color-light-gray);
+            padding: 15px 20px;
+            color: #8498AF;
+            font-size: .9rem;
+            transition: .4s;
+        }
+
+        [type="submit"] {
+            background: var(--color-primary);
+            border-radius: 30px;
+            padding: 16px 30px;
+            width: 100%;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: .8rem;
+            transition: .4s;
+            border: none;
+            box-shadow: none;
+            margin: 0;
+        }
+
+        .sign-up-divider {
+            color: #C4C8D4;
+            font-size: .8rem;
+            letter-spacing: .5px;
+            padding: 24px 0;
+        }
+
+        .sign-up-divider::before,
+        .sign-up-divider::after {
+            content: '';
+            display: inline-block;
+            width: 27%;
+            margin: 0 5%;
+            height: 1px;
+            background: var(--color-light-gray);
+            vertical-align: middle;
+        }
+
+
+
+
+        /* LOGIN */
+
+        .login {
+            text-align: center;
+            margin-top: 24px;
+            font-size: .8rem;
+        }
+
+        .login a {
+            margin-left: 4px;
+            text-decoration: none;
+            color: var(--color-primary);
+            transition: .3s;
+        }
+
+        .login a:hover {
+            color: var(--color-primary-dark);
+        }
+
+        /* SUCCESS MESSAGE */
+        .success-message {
+            background-color: var(--color-success);
+            color: var(--color-success-text);
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* ERROR MESSAGE */
+        .error-message {
+            background-color: var(--color-error);
+            color: var(--color-error-text);
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Entrenador de redes neuronales para clasificar imágenes</h1>
+        <div class="form-background">
+            {% if success_message %}
+                <div class="success-message">{{ success_message }}</div>
+            {% endif %}
+            {% if error_message %}
+                <div class="error-message">{{ error_message }}</div>
+            {% endif %}
+            <h1>Iniciar sesión</h1>
+            <form action="/postsignIn/" method="post">
+                {% csrf_token %}
+                <input type="email" id="Email" name="email" placeholder="Correo Electrónico">
+                <br>
+                <input type="password" id="Password" name="pass" placeholder="Contraseña">
+                <br><br>
+                <button type="submit">ENTRAR</button>
+                <br><br>
+            </form>
+        </div>
+        <div class="login">
+            <p>¿Necesitas una cuenta? <a href="{% url 'signup' %}">Registrarse</a></p>
+        </div>
+        <div class="login">
+            <p>Recuperar<a href="{% url 'reset' %}">Contraseña</a></p>
+        </div>
+    </div>
+</body>
+</html>
